@@ -101,22 +101,22 @@ def perfTest():
     elif sys.argv[1] == "mesh":
         topo = MeshTopo(int(sys.argv[2]))
     else:
-        print("unknown topology")
+        print("Unknown Topology (single, linear, tree, mesh)")
 
     # Create network with specified topology, using CPULimitedHost and TCLink
     net = Mininet(topo, host=CPULimitedHost, link=TCLink)
     net.start()
 
     # Print information about host connections in network
-    print("\n dumping host connections: \n")
+    print("\n Dumping Host Connections: \n")
     dumpNodeConnections(net.hosts)
 
     # Test network connectivity using pingAll()
-    print("\n Testing network connectivity: \n")
+    print("\n Testing Network Connectivity: \n")
     net.pingAll()
 
     # Test pairwise bandwidths between hosts using iperf()
-    print("\n Testing all pairwise bandwidths between hosts: \n")
+    print("\n Testing All Pairwise Bandwidths Between Hosts: \n")
     for i in range(len(net.hosts)):
         for j in range(i+1, len(net.hosts)):
             net.iperf((net.get(f'h{i+1}'), net.get(f'h{j+1}')))
