@@ -112,7 +112,7 @@ def perfTest():
     dumpNodeConnections(net.hosts)
 
     # Test network connectivity using pingAll()
-    print("\n Testing Network Connectivity: \n")
+    print("\n Testing network Connectivity: \n")
     net.pingAll()
 
     # Test pairwise bandwidths between hosts using iperf()
